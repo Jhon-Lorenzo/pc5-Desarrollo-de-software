@@ -93,7 +93,7 @@ export class ReportesGerente implements OnInit {
   }
 
   cargarDatos() {
-    this.http.get<any[]>('https://e9a1-38-25-18-236.ngrok-free.app/api/solicitudes').subscribe({
+    this.http.get<any[]>('https://920d-38-25-18-236.ngrok-free.app/api/solicitudes').subscribe({
       next: (data) => {
         this.solicitudes = data;
         this.calcularMetricas();

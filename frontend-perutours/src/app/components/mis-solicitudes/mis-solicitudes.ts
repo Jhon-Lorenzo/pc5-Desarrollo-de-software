@@ -118,7 +118,7 @@ export class MisSolicitudes implements OnInit {
       return;
     }
 
-    this.http.get<any[]>(`https://e9a1-38-25-18-236.ngrok-free.app/api/solicitudes/usuario/${user.correo}`).subscribe({
+    this.http.get<any[]>(`https://920d-38-25-18-236.ngrok-free.app/api/solicitudes/usuario/${user.correo}`).subscribe({
       next: (data) => {
         this.solicitudes = data;
         this.cdr.detectChanges();
@@ -146,7 +146,7 @@ export class MisSolicitudes implements OnInit {
       return;
     }
 
-    this.http.put(`https://e9a1-38-25-18-236.ngrok-free.app/api/solicitudes/${this.solicitudAPagar.id}/estado?nuevoEstado=Pagado`, {}).subscribe({
+    this.http.put(`https://920d-38-25-18-236.ngrok-free.app/api/solicitudes/${this.solicitudAPagar.id}/estado?nuevoEstado=Pagado`, {}).subscribe({
       next: () => {
         this.toastService.success('¡Pago procesado con éxito!');
         this.solicitudAPagar = null;

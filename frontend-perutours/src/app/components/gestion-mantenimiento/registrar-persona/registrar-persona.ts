@@ -69,7 +69,7 @@ export class RegistrarPersona implements OnInit {
       return;
     }
 
-    this.http.post<any>('https://e9a1-38-25-18-236.ngrok-free.app/api/auth/registro', this.usuario).subscribe({
+    this.http.post<any>('https://920d-38-25-18-236.ngrok-free.app/api/auth/registro', this.usuario).subscribe({
       next: (response) => {
         this.toastService.success('¡Registro exitoso! Ya puede iniciar sesión.');
         this.router.navigate(['/login']);

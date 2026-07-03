@@ -121,7 +121,7 @@ export class AdminPaquetes implements OnInit {
   }
 
   cargarPaquetes() {
-    this.http.get<any[]>('https://e9a1-38-25-18-236.ngrok-free.app/api/tours/all').subscribe({
+    this.http.get<any[]>('https://920d-38-25-18-236.ngrok-free.app/api/tours/all').subscribe({
       next: (data) => {
         this.paquetes = data;
         this.cdr.detectChanges();
@@ -153,7 +153,7 @@ export class AdminPaquetes implements OnInit {
     }
 
     if (this.editando) {
-      this.http.put(`https://e9a1-38-25-18-236.ngrok-free.app/api/tours/${this.paqueteActual.id}`, this.paqueteActual).subscribe({
+      this.http.put(`https://920d-38-25-18-236.ngrok-free.app/api/tours/${this.paqueteActual.id}`, this.paqueteActual).subscribe({
         next: () => {
           this.toastService.success('Paquete actualizado exitosamente.');
           this.mostrarFormulario = false;
@@ -162,7 +162,7 @@ export class AdminPaquetes implements OnInit {
         error: (err) => console.error(err)
       });
     } else {
-      this.http.post('https://e9a1-38-25-18-236.ngrok-free.app/api/tours', this.paqueteActual).subscribe({
+      this.http.post('https://920d-38-25-18-236.ngrok-free.app/api/tours', this.paqueteActual).subscribe({
         next: () => {
           this.toastService.success('Nuevo paquete creado.');
           this.mostrarFormulario = false;
@@ -179,7 +179,7 @@ export class AdminPaquetes implements OnInit {
 
   confirmarDesactivar() {
     if (this.paqueteADesactivar) {
-      this.http.delete(`https://e9a1-38-25-18-236.ngrok-free.app/api/tours/${this.paqueteADesactivar.id}`).subscribe({
+      this.http.delete(`https://920d-38-25-18-236.ngrok-free.app/api/tours/${this.paqueteADesactivar.id}`).subscribe({
         next: () => {
           this.toastService.success('Paquete desactivado.');
           this.paqueteADesactivar = null;

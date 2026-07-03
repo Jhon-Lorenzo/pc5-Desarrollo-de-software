@@ -108,7 +108,7 @@ export class ConsultarCotizaciones implements OnInit {
   }
 
   cargarSolicitudes() {
-    this.http.get<any[]>('https://e9a1-38-25-18-236.ngrok-free.app/api/solicitudes').subscribe({
+    this.http.get<any[]>('https://920d-38-25-18-236.ngrok-free.app/api/solicitudes').subscribe({
       next: (data) => {
         this.solicitudes = data;
         this.cdr.detectChanges();
@@ -118,7 +118,7 @@ export class ConsultarCotizaciones implements OnInit {
   }
 
   aceptarSolicitud(id: number) {
-    this.http.put(`https://e9a1-38-25-18-236.ngrok-free.app/api/solicitudes/${id}/estado?nuevoEstado=Aceptado`, {}).subscribe({
+    this.http.put(`https://920d-38-25-18-236.ngrok-free.app/api/solicitudes/${id}/estado?nuevoEstado=Aceptado`, {}).subscribe({
       next: () => {
         this.toastService.success(`Solicitud #${id} ha sido aceptada.`);
         this.cargarSolicitudes();
@@ -149,7 +149,7 @@ export class ConsultarCotizaciones implements OnInit {
     params.append('nuevoEstado', 'Rechazado');
     params.append('comentarioRechazo', this.motivoRechazo);
 
-    this.http.put(`https://e9a1-38-25-18-236.ngrok-free.app/api/solicitudes/${this.solicitudARechazar}/estado?${params.toString()}`, {}).subscribe({
+    this.http.put(`https://920d-38-25-18-236.ngrok-free.app/api/solicitudes/${this.solicitudARechazar}/estado?${params.toString()}`, {}).subscribe({
       next: () => {
         this.toastService.success(`Solicitud #${this.solicitudARechazar} ha sido rechazada.`);
         this.solicitudARechazar = null;

@@ -64,7 +64,7 @@ export class SolicitarPaquete implements OnInit {
     this.maxFecha = this.formatDate(oneYearLater);
 
     // Cargar los tours dinámicamente
-    this.http.get<any[]>('https://e9a1-38-25-18-236.ngrok-free.app/api/tours').subscribe({
+    this.http.get<any[]>('https://920d-38-25-18-236.ngrok-free.app/api/tours').subscribe({
       next: (data) => {
         // Filtrar activos
         this.tours = data.filter(t => t.activo);
@@ -129,7 +129,7 @@ export class SolicitarPaquete implements OnInit {
       montoTotal: this.montoTotal
     };
 
-    this.http.post('https://e9a1-38-25-18-236.ngrok-free.app/api/solicitudes', payload).subscribe({
+    this.http.post('https://920d-38-25-18-236.ngrok-free.app/api/solicitudes', payload).subscribe({
       next: (res) => {
         this.toastService.success('¡Solicitud enviada con éxito!');
         this.router.navigate(['/mis-solicitudes']);

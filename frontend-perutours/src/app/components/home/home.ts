@@ -18,7 +18,7 @@ export class Home implements OnInit {
   private cdr = inject(ChangeDetectorRef);
 
   ngOnInit() {
-    this.http.get<any[]>('https://e9a1-38-25-18-236.ngrok-free.app/api/tours').subscribe({
+    this.http.get<any[]>('https://920d-38-25-18-236.ngrok-free.app/api/tours').subscribe({
       next: (data) => {
         this.destinos = data;
         this.cdr.detectChanges();

@@ -11,7 +11,7 @@ import { tap } from 'rxjs/operators';
 })
 export class Auth {
 
-  private apiUrl = 'https://e9a1-38-25-18-236.ngrok-free.app/api/auth';
+  private apiUrl = 'https://920d-38-25-18-236.ngrok-free.app/api/auth';
 
   constructor(private http: HttpClient, private sessionService: Session) {}
 
