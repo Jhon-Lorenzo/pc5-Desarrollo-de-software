@@ -1,0 +1,60 @@
+<div class="container" *ngIf="session.isLoggedIn()">
+    <h2>Panel Principal</h2>
+    <p class="text-muted">Bienvenido al sistema de Perú TOURS, {{ session.currentUser()?.nombres }}. Seleccione una opción:</p>
+
+    <div class="dashboard-grid">
+        
+        <!-- Opciones para Socio -->
+        <ng-container *ngIf="session.currentUser()?.rol?.nombre === 'Socio'">
+            <div class="card" routerLink="/catalogo">
+                <div class="card-icon">🌍</div>
+                <h3>Explorar Catálogo</h3>
+                <p>Descubre nuestros paquetes turísticos disponibles</p>
+            </div>
+            <div class="card" routerLink="/solicitud">
+                <div class="card-icon">✈️</div>
+                <h3>Solicitar Paquete</h3>
+                <p>Registre una nueva solicitud de paquete turístico</p>
+            </div>
+            <div class="card" routerLink="/mis-solicitudes">
+                <div class="card-icon">📋</div>
+                <h3>Mis Solicitudes</h3>
+                <p>Consulte el estado de sus cotizaciones</p>
+            </div>
+        </ng-container>
+
+        <!-- Opciones para Agente Receptivo -->
+        <ng-container *ngIf="session.currentUser()?.rol?.nombre === 'Agente Receptivo'">
+            <div class="card" routerLink="/admin-paquetes">
+                <div class="card-icon">🌍</div>
+                <h3>Gestionar Catálogo</h3>
+                <p>Crea o modifica los paquetes turísticos.</p>
+            </div>
+            <div class="card" routerLink="/consultar-cotizaciones">
+                <div class="card-icon">📊</div>
+                <h3>Gestionar Cotizaciones</h3>
+                <p>Revise y acepte o rechace las solicitudes de los socios.</p>
+            </div>
+        </ng-container>
+
+        <!-- Opciones para Gerente (vista ejecutiva) -->
+        <ng-container *ngIf="session.currentUser()?.rol?.nombre === 'Gerente'">
+            <div class="card" routerLink="/admin-paquetes">
+                <div class="card-icon">🌍</div>
+                <h3>Catálogo de Tours</h3>
+                <p>Gestión completa de los destinos ofrecidos.</p>
+            </div>
+            <div class="card" routerLink="/consultar-cotizaciones">
+                <div class="card-icon">📊</div>
+                <h3>Gestionar Cotizaciones</h3>
+                <p>Supervise y gestione el estado de todas las cotizaciones del sistema.</p>
+            </div>
+            <div class="card" routerLink="/reportes">
+                <div class="card-icon">📈</div>
+                <h3>Reportes y Estadísticas</h3>
+                <p>Analice ingresos, métricas de ventas y el historial de auditoría.</p>
+            </div>
+        </ng-container>
+
+    </div>
+</div>

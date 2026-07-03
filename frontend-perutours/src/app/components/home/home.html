@@ -1,0 +1,65 @@
+<!-- EL HTML FUE REORDENADO. EL HERO WRAPPER AHORA ESTÁ MÁS ABAJO -->
+
+<!-- NUEVA SECCIÓN DE DESTINOS -->
+<div class="destinations-section">
+    <div class="container" style="background: transparent; box-shadow: none; padding-top: 0px; min-height: auto; margin-top: 20px;">
+        <h2 class="text-center" style="font-size: 2.5rem; margin-bottom: 10px;">Nuestros Destinos Populares</h2>
+        <p class="text-center text-muted" style="margin-bottom: 40px; font-size: 1.1rem;">Explora los lugares más impresionantes del Perú con nuestros paquetes todo incluido.</p>
+        
+        <div class="destinations-grid">
+            <div class="destination-card" *ngFor="let dest of destinos">
+                <div class="destination-img">
+                    <!-- Cuando no haya imagen real, usaremos un color gris de fondo -->
+                    <img [src]="dest.imagen" alt="{{ dest.nombre }}" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22400%22%20height%3D%22250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20250%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1%20text%20%7B%20fill%3A%23999%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A20pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1%22%3E%3Crect%20width%3D%22400%22%20height%3D%22250%22%20fill%3D%22%23e2e8f0%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22120%22%20y%3D%22133%22%3EImagen%20AQU%C3%8D%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E';">
+                    <div class="destination-price">Desde ${{ dest.precio }}</div>
+                </div>
+                <div class="destination-info">
+                    <h3>{{ dest.nombre }}</h3>
+                    <p class="text-muted" style="margin-bottom: 0;">⏳ {{ dest.dias }} días / {{ dest.dias - 1 }} noches</p>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 20px;" routerLink="/solicitud">Reservar Ahora</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TEXTO PRINCIPAL Y BOTONES (Ahora debajo de los destinos) -->
+<div class="hero-wrapper">
+    <div class="landing-glass">
+        <h1>Descubre el verdadero <span>Perú</span></h1>
+        <p>
+            Vende la rutina y compra una aventura. Afíliate como socio exclusivo y recibe 
+            cotizaciones personalizadas para los destinos más espectaculares.
+        </p>
+        <div class="flex-center" style="display: flex; justify-content: center; gap: 20px;">
+            <ng-container *ngIf="!session.isLoggedIn()">
+                <button class="btn btn-primary" routerLink="/registro">Registrarme Ahora</button>
+                <button class="btn btn-accent" routerLink="/login">Ya soy socio</button>
+            </ng-container>
+            <ng-container *ngIf="session.isLoggedIn()">
+                <button class="btn btn-primary" routerLink="/dashboard">Ir a mi Panel de Control</button>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<!-- CARACTERÍSTICAS (Al final de la página) -->
+<div class="features-wrapper">
+    <div class="landing-features">
+        <div class="feature-item">
+            <div class="icon">🏞️</div>
+            <h4>Destinos Únicos</h4>
+            <p class="text-muted" style="margin-bottom: 0;">Cusco, Nazca, Paracas y experiencias inolvidables.</p>
+        </div>
+        <div class="feature-item">
+            <div class="icon">💎</div>
+            <h4>Trato Exclusivo</h4>
+            <p class="text-muted" style="margin-bottom: 0;">Nuestros agentes elaboran tu viaje a la medida.</p>
+        </div>
+        <div class="feature-item">
+            <div class="icon">🔒</div>
+            <h4>Compra Segura</h4>
+            <p class="text-muted" style="margin-bottom: 0;">Seguimiento 24/7 y pasarela de pago certificada.</p>
+        </div>
+    </div>
+</div>

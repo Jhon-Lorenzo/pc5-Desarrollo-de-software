@@ -1,0 +1,48 @@
+<header class="main-header">
+    <div class="logo-section">
+        <div class="app-title" style="cursor: pointer;" routerLink="/">Perú <span>TOURS</span></div>
+    </div>
+    
+    <!-- Navegación central (Solo si está logueado) -->
+    <nav class="header-nav" *ngIf="session.isLoggedIn()">
+        <a routerLink="/dashboard" routerLinkActive="active">Inicio</a>
+        
+        <!-- Opciones para Socios -->
+        <ng-container *ngIf="session.currentUser()?.rol?.nombre === 'Socio'">
+            <a routerLink="/catalogo" routerLinkActive="active">Catálogo</a>
+            <a routerLink="/solicitud" routerLinkActive="active">Solicitar Paquete</a>
+            <a routerLink="/mis-solicitudes" routerLinkActive="active">Mis Solicitudes</a>
+        </ng-container>
+
+        <!-- Opciones para Agente Receptivo -->
+        <ng-container *ngIf="session.currentUser()?.rol?.nombre === 'Agente Receptivo'">
+            <a routerLink="/admin-paquetes" routerLinkActive="active">Paquetes</a>
+            <a routerLink="/consultar-cotizaciones" routerLinkActive="active">Consultar Cotizaciones</a>
+        </ng-container>
+
+        <!-- Opciones para Gerente -->
+        <ng-container *ngIf="session.currentUser()?.rol?.nombre === 'Gerente'">
+            <a routerLink="/admin-paquetes" routerLinkActive="active">Catálogo Tours</a>
+            <a routerLink="/consultar-cotizaciones" routerLinkActive="active">Cotizaciones</a>
+            <a routerLink="/reportes" routerLinkActive="active">Reportes</a>
+        </ng-container>
+    </nav>
+
+    <!-- Acciones a la derecha -->
+    <div class="header-actions">
+        <!-- Usuario No Logueado -->
+        <ng-container *ngIf="!session.isLoggedIn()">
+            <a class="header-link" routerLink="/login">Ingresar</a>
+            <button class="btn btn-primary btn-sm" routerLink="/registro">Afiliarme</button>
+        </ng-container>
+
+        <!-- Usuario Logueado -->
+        <ng-container *ngIf="session.isLoggedIn()">
+            <div class="user-badge">
+                <span class="user-name">{{ session.currentUser()?.nombres }}</span>
+                <span class="user-role">{{ session.currentUser()?.rol?.nombre }}</span>
+            </div>
+            <a (click)="logout()" class="header-link logout-btn">Salir</a>
+        </ng-container>
+    </div>
+</header>

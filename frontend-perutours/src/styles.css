@@ -1,0 +1,580 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+/* perutours.css - Estilos Premium (Psicología de Color de Marketing) */
+
+:root {
+    /* Psicología de color: 
+       - Azul Marino Profundo (Confianza, Seguridad, Profesionalismo)
+       - Naranja Coral/Mandarina (Llamado a la acción, Entusiasmo, Aventura)
+       - Gris Claro (Limpieza, Modernidad)
+    */
+    --primary-color: #0F2027; /* Azul/Gris muy oscuro - Elegancia */
+    --primary-light: #203A43;
+    --secondary-color: #2C5364; /* Océano */
+    
+    /* El acento naranja incita a la urgencia y al clic (Marketing) */
+    --accent-color: #FF512F; 
+    --accent-hover: #DD2476; /* Gradiente de aventura */
+    
+    --danger-color: #e53935;
+    --success-color: #43a047;
+    
+    --bg-light: #F8F9FA;
+    --bg-white: #FFFFFF;
+    --border-color: #E2E8F0;
+    
+    --text-dark: #1E293B;
+    --text-light: #64748B;
+    
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    
+    --radius: 12px;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ================= HEADER (UNIFICADO) ================= */
+.main-header {
+    background-color: var(--bg-white);
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-section .app-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.6rem;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.logo-section .app-title span {
+    color: var(--accent-color);
+}
+
+.header-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.header-nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.header-nav a:hover {
+    color: var(--primary-color);
+    background-color: var(--bg-light);
+}
+
+.header-nav a.active {
+    color: var(--accent-color);
+    background-color: rgba(255, 81, 47, 0.1);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-link {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.header-link:hover {
+    color: var(--accent-color);
+}
+
+.logout-btn {
+    color: var(--text-light);
+}
+
+.logout-btn:hover {
+    color: var(--danger-color);
+}
+
+.user-badge {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    line-height: 1.2;
+}
+
+.user-badge .user-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.user-badge .user-role {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+/* ================= MAIN CONTAINER ================= */
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: var(--bg-white);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    min-height: 400px;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+p.text-muted {
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+/* ================= FORMS & INPUTS ================= */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Outfit', sans-serif;
+    background-color: #f8fafc;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: var(--bg-white);
+    box-shadow: 0 0 0 4px rgba(255, 81, 47, 0.1);
+}
+
+.grid-2-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* ================= BUTTONS (Marketing focus) ================= */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: 'Outfit', sans-serif;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* El botón primario es de "Acción/Compra" -> Naranja Vibrante */
+.btn-primary { 
+    background: linear-gradient(to right, var(--accent-color), var(--accent-hover));
+    color: white; 
+    box-shadow: 0 4px 15px rgba(255, 81, 47, 0.3);
+}
+.btn-primary:hover:not(:disabled) { 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 81, 47, 0.4);
+}
+
+/* El botón acento es secundario brillante */
+.btn-accent { 
+    background-color: var(--bg-white); 
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+}
+.btn-accent:hover { 
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn-secondary { 
+    background-color: #e2e8f0; 
+    color: var(--text-dark); 
+}
+.btn-secondary:hover { 
+    background-color: #cbd5e1; 
+}
+
+/* ================= DASHBOARD CARDS ================= */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-color);
+}
+
+.card-icon {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin: 0 0 10px 0;
+    font-size: 1.3rem;
+}
+
+.card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ================= ALERTS ================= */
+.alert {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.alert-error { 
+    background: #fef2f2; 
+    color: #991b1b; 
+    border-left: 4px solid #ef4444; 
+}
+
+/* ================= UTILITY ================= */
+.mt-15 { margin-top: 15px; }
+.flex-end { display: flex; justify-content: flex-end; gap: 15px; }
+.text-center { text-align: center; }
+
+.link-primary {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.link-primary:hover { text-decoration: underline; color: var(--accent-hover); }
+
+/* ================= TABLES ================= */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: #f8fafc;
+    color: var(--primary-light);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+tr:hover td {
+    background-color: #f1f5f9;
+}
+
+/* ================= HERO (LANDING) ================= */
+/* Esta sección usa Glassmorphism e imágenes de fondo (Marketing Visual) */
+.hero-wrapper {
+    /* AQUÍ AGREGAS LA RUTA DE TU IMAGEN */
+    background-image: url('assets/images/hero-bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.landing-glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 50px;
+    max-width: 900px;
+    text-align: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.landing-glass h1 {
+    color: var(--primary-color);
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.landing-glass h1 span {
+    background: linear-gradient(to right, var(--accent-color), var(--accent-hover));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.landing-glass > p {
+    color: var(--primary-light);
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 35px;
+    line-height: 1.6;
+}
+
+/* ================= FEATURES SECTION ================= */
+.features-wrapper {
+    max-width: 1000px;
+    margin: 40px auto 60px auto;
+    padding: 0 20px;
+}
+
+.landing-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    background-color: var(--bg-white);
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+}
+
+.feature-item {
+    padding: 15px;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-item .icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.feature-item h4 {
+    color: var(--primary-color);
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+}
+
+/* ================= PROGRESS BAR (Registro) ================= */
+.progress-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 140px;
+    position: relative;
+    z-index: 2;
+}
+
+.step-number {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--border-color);
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.step.active .step-number {
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+    color: white;
+    box-shadow: 0 4px 10px rgba(255, 81, 47, 0.3);
+}
+
+.step-label {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.step.active .step-label {
+    color: var(--primary-color);
+}
+
+.step-connector {
+    width: 80px;
+    height: 3px;
+    background: var(--border-color);
+    margin-top: -24px;
+    margin-left: -20px;
+    margin-right: -20px;
+    z-index: 1;
+}
+
+/* Footer */
+.main-footer {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-top: 60px;
+    padding: 25px;
+    background: var(--bg-white);
+    border-top: 1px solid var(--border-color);
+}
+
+/* ================= DESTINATIONS SECTION ================= */
+.destinations-section {
+    padding: 10px 0 40px 0;
+    background-color: var(--bg-light);
+}
+
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.destination-card {
+    background: var(--bg-white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.destination-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.destination-img {
+    position: relative;
+    height: 200px;
+    background-color: #e2e8f0;
+}
+
+.destination-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.destination-price {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+    color: white;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.destination-info {
+    padding: 25px;
+}
+
+.destination-info h3 {
+    margin: 0 0 10px 0;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+}
+

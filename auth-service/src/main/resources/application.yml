@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: auth-service
+  datasource:
+    url: jdbc:postgresql://ep-jolly-paper-ata8sf6g-pooler.c-9.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+    driverClassName: org.postgresql.Driver
+    username: neondb_owner
+    password: [AQUÍ_VA_TU_CONTRASEÑA]
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-service:8761/eureka/

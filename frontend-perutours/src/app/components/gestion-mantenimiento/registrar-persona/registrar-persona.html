@@ -1,0 +1,83 @@
+<div class="container">
+    <h2>Registro de Nuevo Socio</h2>
+    <p class="text-muted">Complete el formulario para afiliarse como socio de Perú TOURS.</p>
+
+    <!-- Progress Bar Multi-Step -->
+    <div class="progress-bar">
+        <div class="step" [class.active]="step >= 1">
+            <div class="step-number">1</div>
+            <div class="step-label">Datos Personales</div>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step" [class.active]="step === 2">
+            <div class="step-number">2</div>
+            <div class="step-label">Credenciales</div>
+        </div>
+    </div>
+
+    <form (ngSubmit)="step === 2 ? registrar() : nextStep()">
+
+        <!-- PASO 1: Datos Personales -->
+        <div *ngIf="step === 1">
+            <div class="grid-2-cols">
+                <div class="form-group">
+                    <label>Nombres</label>
+                    <input type="text" name="nombres" [(ngModel)]="usuario.nombres" placeholder="Ingrese sus nombres" required>
+                </div>
+                <div class="form-group">
+                    <label>Apellidos</label>
+                    <input type="text" name="apellidos" [(ngModel)]="usuario.apellidos" placeholder="Ingrese sus apellidos" required>
+                </div>
+            </div>
+            <div class="grid-2-cols">
+                <div class="form-group">
+                    <label>DNI</label>
+                    <input type="text" name="dni" [(ngModel)]="dni" maxlength="8" placeholder="8 dígitos" required>
+                </div>
+                <div class="form-group">
+                    <label>Teléfono</label>
+                    <input type="text" name="telefono" [(ngModel)]="telefono" maxlength="9" placeholder="987654321">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Dirección</label>
+                <input type="text" name="direccion" [(ngModel)]="direccion" placeholder="Av. / Jr. / Calle">
+            </div>
+            <div class="flex-end mt-15">
+                <button type="button" class="btn btn-secondary" routerLink="/">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Siguiente</button>
+            </div>
+        </div>
+
+        <!-- PASO 2: Credenciales -->
+        <div *ngIf="step === 2">
+            <div class="form-group">
+                <label>Correo Electrónico</label>
+                <input type="email" name="correo" [(ngModel)]="usuario.correo" placeholder="ejemplo@mail.com" required>
+            </div>
+            <div class="grid-2-cols">
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" name="password" [(ngModel)]="usuario.password" placeholder="Mínimo 6 caracteres" required>
+                </div>
+                <div class="form-group">
+                    <label>Confirmar Contraseña</label>
+                    <input type="password" name="confirmarPassword" [(ngModel)]="confirmarPassword" placeholder="Repita la contraseña" required>
+                </div>
+            </div>
+
+            <div class="terms-container">
+                <input type="checkbox" id="accept-terms" required>
+                <label for="accept-terms" class="label-inline">
+                    Acepto los <a class="link-primary">Términos y Condiciones</a>
+                </label>
+            </div>
+
+            <div class="flex-end mt-15">
+                <button type="button" class="btn btn-secondary" (click)="prevStep()">Atrás</button>
+                <button type="submit" class="btn btn-primary">Registrarme</button>
+            </div>
+        </div>
+
+    </form>
+</div>
